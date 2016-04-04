@@ -19,6 +19,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.framework>4.2.5.RELEASE</spring.framework>
         <spring.security.version>4.0.4.RELEASE</spring.security.version>
+        <logback.version>1.1.7</logback.version>
+        <slf4j.version>1.7.20</slf4j.version>
     </properties>
     
     <dependencies>
@@ -62,6 +64,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.framework}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -72,6 +80,18 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>${spring.security.version}</version>
+        </dependency>
+        
+        <!-- LOG -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>                                    
+            <groupId>org.slf4j</groupId>                
+            <artifactId>slf4j-api</artifactId>     
+            <version>${slf4j.version}</version>  
         </dependency>
     </dependencies>
 

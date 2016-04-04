@@ -11,6 +11,8 @@ import com.alejandroszlv.mock.srv.intrface.MockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.alejandroszlv.mock.repository.data.interfaces.MockRepositoryData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -18,6 +20,8 @@ import com.alejandroszlv.mock.repository.data.interfaces.MockRepositoryData;
  */
 @Service
 public class MockServiceImpl implements MockService {
+    
+    private static final Logger logger = LoggerFactory.getLogger(MockServiceImpl.class);
 
     @Autowired
     private MockRepository mockRespository;
@@ -27,12 +31,16 @@ public class MockServiceImpl implements MockService {
     
     @Override
     public MockEntity testMethod() {
+        logger.info("Start testMethod");
         MockEntity mockEntity = null;
         
         try {
             //mockEntity = mockRespository.testMethod();
             mockEntity = mockRepositoryData.findOne(2);
         } catch (Exception e) {
+            logger.error(e.getMessage());
+        } finally {
+            logger.info("End testMethod");
         }
         
         return mockEntity;

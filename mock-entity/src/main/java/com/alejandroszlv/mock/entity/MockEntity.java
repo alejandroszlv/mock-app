@@ -22,11 +22,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Alex
  */
 @Entity
-@Table(name = "MOCK_TABLE")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "MockTable.findAll", query = "SELECT m FROM MockEntity m"),
-    @NamedQuery(name = "MockTable.findById", query = "SELECT m FROM MockEntity m WHERE m.id = :id")})
+    @NamedQuery(name = "MockEntity.findAll", query = "SELECT m FROM MockEntity m"),
+    @NamedQuery(name = "MockEntity.findById", query = "SELECT m FROM MockEntity m WHERE m.id = :id")})
 public class MockEntity implements Serializable {
     
     @Id
