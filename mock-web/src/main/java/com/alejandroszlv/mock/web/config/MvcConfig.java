@@ -5,10 +5,12 @@
  */
 package com.alejandroszlv.mock.web.config;
 
+import com.alejandroszlv.mock.web.config.security.SecurityConfig;
 import com.alejandroszlv.mock.web.MockPackage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -20,8 +22,9 @@ import org.springframework.web.servlet.view.JstlView;
  * @author Alex
  */
 @EnableWebMvc
-@Configuration
+@Import({ SecurityConfig.class })
 @ComponentScan(basePackageClasses = { MockPackage.class })
+@Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
     
     @Bean

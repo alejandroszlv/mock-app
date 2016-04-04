@@ -1,0 +1,10 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav>
+    <ul>
+        <li><a href="/mock-web/admin">Admin</a></li>
+    </ul>
+    <ul>
+        <li><a href="/mock-web/rest">Rest</a></li>
+    </ul>
+</nav>

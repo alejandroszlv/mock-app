@@ -9,6 +9,7 @@
         <%@include file="../jspf/header.jspf" %>
         
         <h3>${dto.name}</h3>
+        <%@include file="../jspf/nav-main.jspf" %>
         
         <%@include file="../jspf/footer.jspf" %>
     </body>

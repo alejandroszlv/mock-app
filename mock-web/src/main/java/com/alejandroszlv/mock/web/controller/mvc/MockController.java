@@ -40,4 +40,11 @@ public class MockController {
         return model;
     }
     
+    @RequestMapping(value = "/admin**", method = RequestMethod.GET)
+    public ModelAndView mockSecurity() {
+        ModelAndView model = new ModelAndView("mock-admin");
+        model.addObject("message", "Spring Security");
+        return model;
+    }
+    
 }
