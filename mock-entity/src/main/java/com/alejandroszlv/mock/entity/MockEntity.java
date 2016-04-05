@@ -5,16 +5,16 @@
  */
 package com.alejandroszlv.mock.entity;
 
+import com.alejandroszlv.mock.listener.MockEntityListener;
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Alex
  */
 @Entity
+@EntityListeners(MockEntityListener.class)
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "MockEntity.findAll", query = "SELECT m FROM MockEntity m"),

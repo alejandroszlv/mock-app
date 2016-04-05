@@ -11,6 +11,7 @@ import com.alejandroszlv.mock.srv.intrface.MockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.alejandroszlv.mock.repository.data.interfaces.MockRepositoryData;
+import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,13 +31,14 @@ public class MockServiceImpl implements MockService {
     private MockRepositoryData mockRepositoryData;
     
     @Override
+    @Transactional
     public MockEntity testMethod() {
         logger.info("Start testMethod");
         MockEntity mockEntity = null;
         
         try {
-            //mockEntity = mockRespository.testMethod();
-            mockEntity = mockRepositoryData.findOne(2);
+            mockEntity = mockRespository.testMethod();
+            //mockEntity = mockRepositoryData.findOne(2);
         } catch (Exception e) {
             logger.error(e.getMessage());
         } finally {

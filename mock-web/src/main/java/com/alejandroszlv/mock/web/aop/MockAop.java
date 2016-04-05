@@ -5,18 +5,12 @@
  */
 package com.alejandroszlv.mock.web.aop;
 
-import com.alejandroszlv.mock.web.controller.rest.MockRestController;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StopWatch;
 
 /**
  *
@@ -26,11 +20,13 @@ import org.springframework.util.StopWatch;
 @Component
 public class MockAop {
 
-    private static final Logger logger = LoggerFactory.getLogger(MockRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MockAop.class);
 
     @Before("execution(* com.alejandroszlv.mock.web.controller.rest.*.*(..))")
-    public void inRestController() {
-        logger.info("inRestController");
+    public void inRestController(JoinPoint joinPoint) {
+        logger.info("Start {}", joinPoint.getStaticPart().toString());
+        
+        logger.info("End {}", joinPoint.getStaticPart().toString());
     }
 
 }

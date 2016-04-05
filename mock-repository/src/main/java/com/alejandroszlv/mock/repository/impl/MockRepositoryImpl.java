@@ -30,6 +30,8 @@ public class MockRepositoryImpl implements MockRepository {
         logger.info("Start testMethod");
         MockEntity entity;
         entity = em.find(MockEntity.class, 1);
+        entity.setName("update");
+        em.persist(entity);
         logger.info("End testMethod");
         return entity;
     }
