@@ -11,5 +11,22 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <dozer.version>5.5.1</dozer.version>
     </properties>
+    
+    <dependencies>
+        <!-- PROJECTS -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mock-entity</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <!-- DOZER -->
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+            <version>${dozer.version}</version>
+        </dependency>
+    </dependencies>
 </project>

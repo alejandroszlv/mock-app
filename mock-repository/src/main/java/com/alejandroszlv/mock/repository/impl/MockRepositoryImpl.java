@@ -20,19 +20,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MockRepositoryImpl implements MockRepository {
     
-    private static final Logger logger = LoggerFactory.getLogger(MockRepositoryImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MockRepositoryImpl.class);
 
     @PersistenceContext
     EntityManager em;
     
     @Override
     public MockEntity testMethod() throws Exception {
-        logger.info("Start testMethod");
         MockEntity entity;
         entity = em.find(MockEntity.class, 1);
-        entity.setName("update");
+        entity.setName("Spring");
         em.persist(entity);
-        logger.info("End testMethod");
         return entity;
     }
     

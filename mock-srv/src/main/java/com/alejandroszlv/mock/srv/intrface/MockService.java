@@ -13,6 +13,6 @@ import com.alejandroszlv.mock.entity.MockEntity;
  */
 public interface MockService {
     
-    public MockEntity testMethod();
+    public MockEntity testMethod() throws Exception;
     
 }

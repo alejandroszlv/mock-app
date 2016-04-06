@@ -22,6 +22,7 @@
         <aspectj.version>1.8.9</aspectj.version>
         <logback.version>1.1.7</logback.version>
         <slf4j.version>1.7.20</slf4j.version>
+        <junit.version>4.12</junit.version>
     </properties>
     
     <dependencies>
@@ -36,13 +37,14 @@
             <artifactId>mock-dto</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>mock-entity</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         
         <!-- JAVAEE -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -115,6 +117,14 @@
             <groupId>org.slf4j</groupId>                
             <artifactId>slf4j-api</artifactId>     
             <version>${slf4j.version}</version>  
+        </dependency>
+        
+        <!-- JUNIT -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

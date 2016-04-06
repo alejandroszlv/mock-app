@@ -7,11 +7,11 @@ package com.alejandroszlv.mock.web.controller.mvc;
 
 import com.alejandroszlv.mock.dto.MockDTO;
 import com.alejandroszlv.mock.entity.MockEntity;
+import com.alejandroszlv.mock.parse.Entity2DtoParse;
 import com.alejandroszlv.mock.srv.intrface.MockService;
 import com.alejandroszlv.mock.web.controller.rest.MockRestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,27 +25,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MockController {
     
-    private static final Logger logger = LoggerFactory.getLogger(MockRestController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MockRestController.class);
     
     @Autowired
     private MockService mockService;
     
     @RequestMapping(value = {"/", "/mvc"}, method = RequestMethod.GET)
-    public ModelAndView mockMethod() {
-        logger.info("Start mockMethod");
+    public ModelAndView mockMethod() throws Exception {
         ModelAndView model = new ModelAndView("mock");
-        
-        try {        
-            MockEntity entity = mockService.testMethod();
-            MockDTO dto = new MockDTO();
-            BeanUtils.copyProperties(entity, dto, "id");
-            model.addObject("dto", dto);
-        } catch (Exception e) {  
-            logger.error(e.getMessage());
-        } finally {
-            logger.info("End mockMethod");
-        }
-
+        MockEntity entity = mockService.testMethod();
+        MockDTO dto = Entity2DtoParse.testParse(entity);
+        model.addObject("dto", dto);
         return model;
     }
     

@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 @Service
 public class MockServiceImpl implements MockService {
     
-    private static final Logger logger = LoggerFactory.getLogger(MockServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MockServiceImpl.class);
 
     @Autowired
     private MockRepository mockRespository;
@@ -32,19 +32,9 @@ public class MockServiceImpl implements MockService {
     
     @Override
     @Transactional
-    public MockEntity testMethod() {
-        logger.info("Start testMethod");
-        MockEntity mockEntity = null;
-        
-        try {
-            mockEntity = mockRespository.testMethod();
-            //mockEntity = mockRepositoryData.findOne(2);
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        } finally {
-            logger.info("End testMethod");
-        }
-        
+    public MockEntity testMethod() throws Exception{
+        MockEntity mockEntity = mockRespository.testMethod();
+        //mockEntity = mockRepositoryData.findOne(2);
         return mockEntity;
     }
     

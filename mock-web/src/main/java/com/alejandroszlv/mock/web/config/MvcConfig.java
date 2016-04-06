@@ -7,7 +7,7 @@ package com.alejandroszlv.mock.web.config;
 
 import com.alejandroszlv.mock.web.config.security.SecurityConfig;
 import com.alejandroszlv.mock.web.MockPackage;
-import com.alejandroszlv.mock.web.aop.MockAop;
+import com.alejandroszlv.mock.web.aop.MockAopController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

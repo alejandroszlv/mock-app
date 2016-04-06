@@ -29,5 +29,10 @@ public class MockDTO {
     public void setName(String name) {
         this.name = name;
     }    
+
+    @Override
+    public String toString() {
+        return "MockDTO{" + "id=" + id + ", name=" + name + '}';
+    }
     
 }
