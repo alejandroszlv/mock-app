@@ -9,6 +9,7 @@ import com.alejandroszlv.mock.entity.MockEntity;
 import com.alejandroszlv.mock.repository.intrface.MockRepository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -18,13 +19,14 @@ import org.springframework.stereotype.Repository;
  * @author Alex
  */
 @Repository
-public class MockRepositoryImpl implements MockRepository {
+public class MockRepositoryImpl implements MockRepository { 
     
     private static final Logger LOGGER = LoggerFactory.getLogger(MockRepositoryImpl.class);
 
     @PersistenceContext
     EntityManager em;
     
+    @Transactional
     @Override
     public MockEntity testMethod() throws Exception {
         MockEntity entity;

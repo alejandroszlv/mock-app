@@ -5,9 +5,9 @@
  */
 package com.alejandroszlv.mock.web.config;
 
+import com.alejandroszlv.mock.srv.config.ServiceConfig;
 import com.alejandroszlv.mock.web.config.security.SecurityConfig;
 import com.alejandroszlv.mock.web.MockPackage;
-import com.alejandroszlv.mock.web.aop.MockAopController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@Import({ SecurityConfig.class })
+@Import({ SecurityConfig.class, ServiceConfig.class })
 @ComponentScan(basePackageClasses = { MockPackage.class })
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {

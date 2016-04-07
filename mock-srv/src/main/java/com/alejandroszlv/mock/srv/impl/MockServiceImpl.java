@@ -29,9 +29,9 @@ public class MockServiceImpl implements MockService {
     
     @Autowired
     private MockRepositoryData mockRepositoryData;
-    
-    @Override
+   
     @Transactional
+    @Override
     public MockEntity testMethod() throws Exception{
         MockEntity mockEntity = mockRespository.testMethod();
         //mockEntity = mockRepositoryData.findOne(2);

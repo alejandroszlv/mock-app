@@ -5,7 +5,6 @@
  */
 package com.alejandroszlv.mock.web.config;
 
-import com.alejandroszlv.mock.repository.config.RepositoryConfig;
 import com.alejandroszlv.mock.srv.config.ServiceConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -22,7 +21,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { MvcConfig.class, ServiceConfig.class};
+        return new Class[] { MvcConfig.class };
     }
 
     @Override
